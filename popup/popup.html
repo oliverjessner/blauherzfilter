@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="popup.css" />
+    </head>
+    <body>
+        <main class="grid gap-2 p-6 w-52 select-none">
+            <div class="flex flex-row justify-between">
+                <img src="../images/logo_32.png" />
+                <p class="text-xl text-gray-500">&nbsp;BlauHerzFilter</p>
+            </div>
+
+            <hr class="mt-4 mb-4" />
+
+            <!-- 
+            <label for="input">Filter Zeichen:</label>
+            <input tilte="" value="💙" />
+            -->
+
+            <p class="text-gray-500 text-base">Social Medias</p>
+
+            <div class="social-medias grid gap-2 grid-cols-[auto_1fr_auto] items-center justify-center">
+                <input type="checkbox" id="tiktok" name="tiktok" value="tiktok" class="social-media-checkbox" />
+                <label for="tiktok" class="checkbox-label">TikTok</label>
+                <img class="grayscale" src="../images/tiktok_logo.webp" />
+
+                <input
+                    type="checkbox"
+                    id="instagram"
+                    name="instagram"
+                    value="instagram"
+                    class="social-media-checkbox"
+                />
+                <label for="instagram" class="checkbox-label">Instagram</label>
+
+                <img class="grayscale" src="../images/instagram_logo.webp" />
+            </div>
+        </main>
+
+        <script src="popup.js"></script>
+    </body>
+</html>

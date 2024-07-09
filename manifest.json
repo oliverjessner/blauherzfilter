@@ -1,0 +1,25 @@
+{
+    "name": "BlauHerzFilter",
+    "description": "Ein 💙-Kommentarfilter für deine lieblings Social Medias",
+    "version": "0.1",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "popup/popup.html"
+    },
+    "author": "Oliver Jessner",
+    "icons": {
+        "16": "images/logo_16.png",
+        "32": "images/logo_32.png",
+        "48": "images/logo_48.png",
+        "128": "images/logo_128.png"
+    },
+    "content_scripts": [
+        {
+            "run_at": "document_end",
+            "js": ["scripts/socialMedia.js", "scripts/tiktok.js", "scripts/instagram.js", "scripts/content.js"],
+            "matches": ["https://www.tiktok.com/*", "https://www.instagram.com/*"]
+        }
+    ],
+    "permissions": ["webRequest", "storage"],
+    "host_permissions": ["*://*.tiktok.com/*", "*://*.instagram.com/*"]
+}

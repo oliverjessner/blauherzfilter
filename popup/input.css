@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.social-media-checkbox {
+    @apply relative appearance-none w-5 h-5 border rounded-full border-gray-500 cursor-pointer checked:bg-blue-800;
+}
+
+.checkbox-label {
+    @apply text-gray-500 text-lg cursor-pointer float-left;
+}

@@ -1,0 +1,17 @@
+{
+    "name": "blauherzfilter",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "npx tailwindcss -i ./popup/input.css -o ./popup/popup.css && tsc",
+        "watch_css": "npx tailwindcss -i ./popup/input.css -o ./popup/popup.css --watch",
+        "watch_ts": "tsc --watch"
+    },
+    "author": "Oliver Jessner",
+    "license": "",
+    "devDependencies": {
+        "tailwindcss": "^3.4.4",
+        "@types/chrome": "^0.0.268"
+    }
+}
