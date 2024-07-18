@@ -1,11 +1,6 @@
-type SocialMediaType = {
-    name: string;
-    input: HTMLInputElement;
-};
-
 const socialMedias: SocialMediaType[] = [...document.querySelectorAll('.social-medias input')].map(function (input) {
     return {
-        name: input.id,
+        name: input.id as SocialMediaName,
         input: input as HTMLInputElement,
     };
 });

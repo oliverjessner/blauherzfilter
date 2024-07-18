@@ -1,7 +1,7 @@
 {
     "name": "BlauHerzFilter",
     "description": "Ein 💙-Kommentarfilter für deine lieblings Social Medias",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "manifest_version": 3,
     "action": {
         "default_popup": "popup/popup.html"
@@ -16,8 +16,14 @@
     "content_scripts": [
         {
             "run_at": "document_end",
-            "js": ["scripts/socialMedia.js", "scripts/tiktok.js", "scripts/instagram.js", "scripts/content.js"],
-            "matches": ["https://www.tiktok.com/*", "https://www.instagram.com/*"]
+            "js": [
+                "scripts/socialMedia.js",
+                "scripts/tiktok.js",
+                "scripts/instagram.js",
+                "scripts/youtube.js",
+                "scripts/content.js"
+            ],
+            "matches": ["https://www.tiktok.com/*", "https://www.instagram.com/*", "https://www.youtube.com/*"]
         }
     ],
     "permissions": ["storage"]

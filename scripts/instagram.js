@@ -1,15 +1,7 @@
 "use strict";
-const embeddedCommentsQuery = '.x1lliihq.x1plvlek.xryxfnj';
-const lightboxCommentsQuery = '._ap3a._aaco._aacu._aacx._aad7._aade';
 class Instagram extends SocialMedia {
-    constructor(filter) {
-        super('instagram', filter);
-    }
-    start() {
-        const observer = new MutationObserver(() => this.findComments());
-        const body = document.querySelector('body');
-        observer.observe(body, { attributes: true, childList: true, subtree: true });
-        return this.findComments();
+    constructor(filter, query1, query2) {
+        super('instagram', filter, query1, query2);
     }
     setDisplay(comments, display) {
         comments.forEach(comment => {
@@ -23,21 +15,5 @@ class Instagram extends SocialMedia {
                 }
             }
         });
-    }
-    toogleComments(comments) {
-        if (this.active) {
-            return this.setDisplay(comments, 'none');
-        }
-        return this.setDisplay(comments, 'block');
-    }
-    findComments() {
-        const comments = [...document.querySelectorAll(embeddedCommentsQuery)];
-        const lightboxComments = [...document.querySelectorAll(lightboxCommentsQuery)];
-        if (lightboxComments && lightboxComments.length !== 0) {
-            return this.toogleComments(lightboxComments);
-        }
-        if (comments && comments.length !== 0) {
-            return this.toogleComments(comments);
-        }
     }
 }

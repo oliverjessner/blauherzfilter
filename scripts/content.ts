@@ -1,13 +1,15 @@
-type SocialMediaName = 'tiktok' | 'instagram';
-type Message = { name: SocialMediaName; checked: boolean };
-
 const emoji: string = '💙';
 const smns = Object.freeze({
-    tiktok: new Tiktok(emoji),
-    instagram: new Instagram(emoji),
+    tiktok: new TikTok(emoji, '[data-e2e="comment-level-1"]', '[data-e2e="comment-level-2"]'),
+    instagram: new Instagram(emoji, '.x1lliihq.x1plvlek.xryxfnj', '._ap3a._aaco._aacu._aacx._aad7._aade'),
+    youtube: new YouTube(
+        emoji,
+        'ytd-comment-view-model .yt-core-attributed-string.yt-core-attributed-string--white-space-pre-wrap img',
+        undefined,
+    ),
 });
-const socialMediasNames = Object.keys(smns);
-const url = window.location.toString();
+const socialMediasNames: SocialMediaName[] = Object.keys(smns) as SocialMediaName[];
+const url: string = window.location.toString();
 const activeSMN: SocialMediaName = socialMediasNames.find(smn => url.includes(smn)) as SocialMediaName;
 
 function start() {

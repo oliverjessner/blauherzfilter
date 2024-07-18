@@ -1,21 +1,8 @@
 "use strict";
-const commentsL1query = '[data-e2e="comment-level-1"]';
-const commentsL2query = '[data-e2e="comment-level-2"]';
 const body = document.querySelector('body');
-class Tiktok extends SocialMedia {
-    constructor(filter) {
-        super('tiktok', filter);
-    }
-    start() {
-        const initLoadObserver = new MutationObserver(() => {
-            const firstComment = body.querySelector(commentsL1query);
-            if (firstComment) {
-                initLoadObserver.disconnect();
-                this.findComments();
-                this.setCommentContainerObserver();
-            }
-        });
-        initLoadObserver.observe(body, { attributes: true, childList: true, subtree: true });
+class TikTok extends SocialMedia {
+    constructor(filter, query1, query2) {
+        super('tiktok', filter, query1, query2);
     }
     setDisplay(comments, display) {
         comments.forEach(comment => {
@@ -26,25 +13,5 @@ class Tiktok extends SocialMedia {
                 commentContainer.style.display = display;
             }
         });
-    }
-    toogleComments(comments) {
-        if (this.active) {
-            return this.setDisplay(comments, 'none');
-        }
-        return this.setDisplay(comments, 'block');
-    }
-    findComments() {
-        const commentsL1 = [...document.querySelectorAll(commentsL1query)];
-        const commentsL2 = [...document.querySelectorAll(commentsL2query)];
-        if (commentsL1 && commentsL1.length !== 0) {
-            this.toogleComments(commentsL1);
-        }
-        if (commentsL2 && commentsL2.length !== 0) {
-            return this.toogleComments(commentsL2);
-        }
-    }
-    setCommentContainerObserver() {
-        const observer = new MutationObserver(() => this.findComments());
-        observer.observe(body, { attributes: true, childList: true, subtree: true });
     }
 }
