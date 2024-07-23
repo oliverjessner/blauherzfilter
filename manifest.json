@@ -6,6 +6,12 @@
     "action": {
         "default_popup": "popup/popup.html"
     },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "blauherzfilter@oliver",
+            "strict_min_version": "100.0"
+        }
+    },
     "author": "Oliver Jessner",
     "icons": {
         "16": "images/logo_16.png",
