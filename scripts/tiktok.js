@@ -1,5 +1,4 @@
 "use strict";
-const body = document.querySelector('body');
 class TikTok extends SocialMedia {
     constructor(filter, query1, query2) {
         super('tiktok', filter, query1, query2);

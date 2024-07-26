@@ -1,5 +1,3 @@
-const body = document.querySelector('body') as HTMLBodyElement;
-
 class TikTok extends SocialMedia {
     constructor(filter: string, query1: string, query2: string) {
         super('tiktok', filter, query1, query2);
