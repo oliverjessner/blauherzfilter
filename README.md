@@ -9,7 +9,7 @@ The following social media platforms are currently supported:
 -   Instagram
 -   TikTok
 -   YouTube
--   x/Twitter
+-   x/twitter
 -   threads
 
 ## Installation
