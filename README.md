@@ -10,6 +10,7 @@ The following social media platforms are currently supported:
 -   TikTok
 -   YouTube
 -   x/Twitter
+-   threads
 
 ## Installation
 
