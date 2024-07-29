@@ -18,13 +18,13 @@ class SocialMedia {
     getCommentsQueryL2() {
         return __classPrivateFieldGet(this, _SocialMedia_commentsQueryL2, "f") || '';
     }
-    constructor(name, filter, commentsQueryL1, commentsQueryL2) {
+    constructor(filter, commentsQueryL1, commentsQueryL2) {
         _SocialMedia_commentsQueryL1.set(this, void 0);
         _SocialMedia_commentsQueryL2.set(this, void 0);
         this.filter = '';
         this.name = '';
         this.active = false;
-        this.name = name;
+        this.name = this.constructor.name.toLowerCase();
         this.filter = filter;
         __classPrivateFieldSet(this, _SocialMedia_commentsQueryL1, commentsQueryL1, "f");
         __classPrivateFieldSet(this, _SocialMedia_commentsQueryL2, commentsQueryL2, "f");
@@ -34,6 +34,7 @@ class SocialMedia {
             const observer = new MutationObserver(() => this.findComments());
             const body = document.querySelector('body');
             observer.observe(body, { attributes: true, childList: true, subtree: true });
+            debug(`[${this.name}]: started`);
             return this.findComments();
         }, 300);
     }
@@ -42,6 +43,9 @@ class SocialMedia {
         if (this.active) {
             return this.setDisplay(comments, 'none');
         }
+        else {
+            debug(`[this.name]: ${comments.length} comments found`);
+        }
         return this.setDisplay(comments, 'block');
     }
     findComments() {
@@ -49,10 +53,16 @@ class SocialMedia {
         if (commentsL1 && commentsL1.length !== 0) {
             this.toogleComments(commentsL1);
         }
+        else {
+            debug(`[${this.name}]: no level1 comments found`);
+        }
         if (this.getCommentsQueryL2()) {
             const commentsL2 = [...document.querySelectorAll(this.getCommentsQueryL2())];
             if (__classPrivateFieldGet(this, _SocialMedia_commentsQueryL2, "f") && commentsL2 && commentsL2.length !== 0) {
                 return this.toogleComments(commentsL2);
+            }
+            else {
+                debug(`[${this.name}]: no level2 comments found`);
             }
         }
     }

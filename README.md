@@ -16,3 +16,24 @@ The following social media platforms are currently supported:
 
 -   [Chrome / Brave](https://chromewebstore.google.com/detail/blauherzfilter/ekhanknjgoennfolmgpmhfhkfehcgldp?authuser=0&hl=en-GB)
 -   [Firefox](https://addons.mozilla.org/en-US/firefox/addon/blauherzfilter/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+
+## Build
+
+```bash
+bun run build
+```
+
+## Development
+
+```bash
+bun run watch_css
+bun run watch_ts
+```
+
+## Lint
+
+Lints for the firefox extension.
+
+```bash
+bun run lint
+```

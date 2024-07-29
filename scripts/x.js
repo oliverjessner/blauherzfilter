@@ -7,7 +7,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
 var _X_blauherzpath;
 class X extends SocialMedia {
     constructor(filter, query1) {
-        super('x', filter, query1, undefined);
+        super(filter, query1, undefined);
         _X_blauherzpath.set(this, 'https://abs-0.twimg.com/emoji/v2/svg/1f499.svg');
     }
     setDisplay(comments, display) {

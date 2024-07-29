@@ -2,7 +2,7 @@ class X extends SocialMedia {
     #blauherzpath = 'https://abs-0.twimg.com/emoji/v2/svg/1f499.svg';
 
     constructor(filter: string, query1: string) {
-        super('x', filter, query1, undefined);
+        super(filter, query1, undefined);
     }
 
     protected setDisplay(comments: HTMLInputElement[], display: string) {

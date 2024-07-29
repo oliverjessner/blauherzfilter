@@ -6,7 +6,11 @@
     "scripts": {
         "build": "npx tailwindcss -i ./popup/input.css -o ./popup/popup.css && tsc",
         "watch_css": "npx tailwindcss -i ./popup/input.css -o ./popup/popup.css --watch",
-        "watch_ts": "tsc --watch"
+        "watch_ts": "tsc --watch",
+        "dev_ff": "web-ext run",
+        "dev_chrome": "web-ext run --arg=\"--remote-debugging-port=9229\" --target chromium",
+        "build_ff": "web-ext build --overwrite-dest --ignore-files */*.ts tailwind.config.js tsconfig.json package-lock.json bun.lockb",
+        "lint": "web-ext lint --ignore-files */*.ts tailwind.config.js tsconfig.json package-lock.json bun.lockb"
     },
     "author": "Oliver Jessner",
     "license": "",
