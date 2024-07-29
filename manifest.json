@@ -23,7 +23,7 @@
         {
             "run_at": "document_end",
             "js": [
-                "scripts/debugging.js",
+                "scripts/debug.js",
                 "scripts/socialMedia.js",
                 "scripts/tiktok.js",
                 "scripts/instagram.js",

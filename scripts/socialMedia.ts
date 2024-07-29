@@ -1,6 +1,7 @@
 class SocialMedia {
     #commentsQueryL1;
     #commentsQueryL2;
+    #debug;
     filter = '';
     name = '';
     active = false;
@@ -18,6 +19,7 @@ class SocialMedia {
         this.filter = filter;
         this.#commentsQueryL1 = commentsQueryL1;
         this.#commentsQueryL2 = commentsQueryL2;
+        this.#debug = new Debug(this.name);
     }
 
     start() {
@@ -26,7 +28,7 @@ class SocialMedia {
             const body = document.querySelector('body') as HTMLBodyElement;
 
             observer.observe(body, { attributes: true, childList: true, subtree: true });
-            debug(`[${this.name}]: started`);
+            this.#debug.log('started');
             return this.findComments();
         }, 300);
     }
@@ -36,8 +38,6 @@ class SocialMedia {
     protected toogleComments(comments: HTMLInputElement[]) {
         if (this.active) {
             return this.setDisplay(comments, 'none');
-        } else {
-            debug(`[this.name]: ${comments.length} comments found`);
         }
 
         return this.setDisplay(comments, 'block');
@@ -49,7 +49,7 @@ class SocialMedia {
         if (commentsL1 && commentsL1.length !== 0) {
             this.toogleComments(commentsL1);
         } else {
-            debug(`[${this.name}]: no level1 comments found`);
+            this.#debug.log('no level 1 comments found');
         }
 
         if (this.getCommentsQueryL2()) {
@@ -58,7 +58,7 @@ class SocialMedia {
             if (this.#commentsQueryL2 && commentsL2 && commentsL2.length !== 0) {
                 return this.toogleComments(commentsL2);
             } else {
-                debug(`[${this.name}]: no level2 comments found`);
+                this.#debug.log('no level 2 comments found');
             }
         }
     }
