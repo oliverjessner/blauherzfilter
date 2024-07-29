@@ -1,6 +1,6 @@
 class Threads extends SocialMedia {
     constructor(filter: string, query1: string) {
-        super('threads', filter, query1, undefined);
+        super(filter, query1, undefined);
     }
 
     protected setDisplay(comments: HTMLInputElement[], display: string) {

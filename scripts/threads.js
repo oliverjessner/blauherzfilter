@@ -1,7 +1,7 @@
 "use strict";
 class Threads extends SocialMedia {
     constructor(filter, query1) {
-        super('threads', filter, query1, undefined);
+        super(filter, query1, undefined);
     }
     setDisplay(comments, display) {
         comments.forEach(comment => {

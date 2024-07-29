@@ -1,6 +1,6 @@
 class TikTok extends SocialMedia {
     constructor(filter: string, query1: string, query2: string) {
-        super('tiktok', filter, query1, query2);
+        super(filter, query1, query2);
     }
 
     protected setDisplay(comments: HTMLInputElement[], display: string) {

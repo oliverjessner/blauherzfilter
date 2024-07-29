@@ -1,7 +1,7 @@
 "use strict";
 class Instagram extends SocialMedia {
     constructor(filter, query1, query2) {
-        super('instagram', filter, query1, query2);
+        super(filter, query1, query2);
     }
     setDisplay(comments, display) {
         comments.forEach(comment => {

@@ -10,7 +10,7 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
     return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
 };
-var _SocialMedia_commentsQueryL1, _SocialMedia_commentsQueryL2;
+var _SocialMedia_commentsQueryL1, _SocialMedia_commentsQueryL2, _SocialMedia_debug;
 class SocialMedia {
     getCommentsQueryL1() {
         return __classPrivateFieldGet(this, _SocialMedia_commentsQueryL1, "f") || '';
@@ -18,22 +18,25 @@ class SocialMedia {
     getCommentsQueryL2() {
         return __classPrivateFieldGet(this, _SocialMedia_commentsQueryL2, "f") || '';
     }
-    constructor(name, filter, commentsQueryL1, commentsQueryL2) {
+    constructor(filter, commentsQueryL1, commentsQueryL2) {
         _SocialMedia_commentsQueryL1.set(this, void 0);
         _SocialMedia_commentsQueryL2.set(this, void 0);
+        _SocialMedia_debug.set(this, void 0);
         this.filter = '';
         this.name = '';
         this.active = false;
-        this.name = name;
+        this.name = this.constructor.name.toLowerCase();
         this.filter = filter;
         __classPrivateFieldSet(this, _SocialMedia_commentsQueryL1, commentsQueryL1, "f");
         __classPrivateFieldSet(this, _SocialMedia_commentsQueryL2, commentsQueryL2, "f");
+        __classPrivateFieldSet(this, _SocialMedia_debug, new Debug(this.name), "f");
     }
     start() {
         setTimeout(() => {
             const observer = new MutationObserver(() => this.findComments());
             const body = document.querySelector('body');
             observer.observe(body, { attributes: true, childList: true, subtree: true });
+            __classPrivateFieldGet(this, _SocialMedia_debug, "f").log('started');
             return this.findComments();
         }, 300);
     }
@@ -49,13 +52,19 @@ class SocialMedia {
         if (commentsL1 && commentsL1.length !== 0) {
             this.toogleComments(commentsL1);
         }
+        else {
+            __classPrivateFieldGet(this, _SocialMedia_debug, "f").log('no level 1 comments found');
+        }
         if (this.getCommentsQueryL2()) {
             const commentsL2 = [...document.querySelectorAll(this.getCommentsQueryL2())];
             if (__classPrivateFieldGet(this, _SocialMedia_commentsQueryL2, "f") && commentsL2 && commentsL2.length !== 0) {
                 return this.toogleComments(commentsL2);
             }
+            else {
+                __classPrivateFieldGet(this, _SocialMedia_debug, "f").log('no level 2 comments found');
+            }
         }
     }
 }
-_SocialMedia_commentsQueryL1 = new WeakMap(), _SocialMedia_commentsQueryL2 = new WeakMap();
+_SocialMedia_commentsQueryL1 = new WeakMap(), _SocialMedia_commentsQueryL2 = new WeakMap(), _SocialMedia_debug = new WeakMap();
 globalThis.SocialMedia = SocialMedia;

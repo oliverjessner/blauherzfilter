@@ -7,7 +7,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
 var _YouTube_blauherzpath;
 class YouTube extends SocialMedia {
     constructor(filter, query1, query2) {
-        super('youtube', filter, query1, query2);
+        super(filter, query1, query2);
         _YouTube_blauherzpath.set(this, 'https://www.youtube.com/s/gaming/emoji/7ff574f2/emoji_u1f499.png');
     }
     setDisplay(comments, display) {

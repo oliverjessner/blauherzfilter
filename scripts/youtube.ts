@@ -2,7 +2,7 @@ class YouTube extends SocialMedia {
     #blauherzpath = 'https://www.youtube.com/s/gaming/emoji/7ff574f2/emoji_u1f499.png';
 
     constructor(filter: string, query1: string, query2: string | undefined) {
-        super('youtube', filter, query1, query2);
+        super(filter, query1, query2);
     }
 
     protected setDisplay(comments: HTMLInputElement[], display: string) {

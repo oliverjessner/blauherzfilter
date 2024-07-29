@@ -131,6 +131,7 @@ build/
 .nyc_output/
 temp/
 browser_data/
+web-ext-artifacts/
 
 # Apple Stuff
 .DS_Store

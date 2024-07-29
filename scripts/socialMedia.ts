@@ -1,6 +1,7 @@
 class SocialMedia {
     #commentsQueryL1;
     #commentsQueryL2;
+    #debug;
     filter = '';
     name = '';
     active = false;
@@ -13,11 +14,12 @@ class SocialMedia {
         return this.#commentsQueryL2 || '';
     }
 
-    constructor(name: string, filter: string, commentsQueryL1: string, commentsQueryL2: string | undefined) {
-        this.name = name;
+    constructor(filter: string, commentsQueryL1: string, commentsQueryL2: string | undefined) {
+        this.name = this.constructor.name.toLowerCase();
         this.filter = filter;
         this.#commentsQueryL1 = commentsQueryL1;
         this.#commentsQueryL2 = commentsQueryL2;
+        this.#debug = new Debug(this.name);
     }
 
     start() {
@@ -26,7 +28,7 @@ class SocialMedia {
             const body = document.querySelector('body') as HTMLBodyElement;
 
             observer.observe(body, { attributes: true, childList: true, subtree: true });
-
+            this.#debug.log('started');
             return this.findComments();
         }, 300);
     }
@@ -46,6 +48,8 @@ class SocialMedia {
 
         if (commentsL1 && commentsL1.length !== 0) {
             this.toogleComments(commentsL1);
+        } else {
+            this.#debug.log('no level 1 comments found');
         }
 
         if (this.getCommentsQueryL2()) {
@@ -53,6 +57,8 @@ class SocialMedia {
 
             if (this.#commentsQueryL2 && commentsL2 && commentsL2.length !== 0) {
                 return this.toogleComments(commentsL2);
+            } else {
+                this.#debug.log('no level 2 comments found');
             }
         }
     }
