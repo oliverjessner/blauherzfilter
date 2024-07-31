@@ -9,3 +9,11 @@
 .checkbox-label {
     @apply text-gray-500 text-lg cursor-pointer float-left;
 }
+
+.tab-select {
+    @apply text-gray-500 text-base p-2 cursor-pointer hover:bg-gray-400;
+}
+
+.tab-active {
+    @apply text-gray-800 text-base p-2 cursor-pointer bg-gray-400;
+}

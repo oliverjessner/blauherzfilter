@@ -1,11 +1,11 @@
 class Threads extends SocialMedia {
-    constructor(filter: string, query1: string) {
-        super(filter, query1, undefined);
+    constructor(query1: string) {
+        super(query1, undefined);
     }
 
     protected setDisplay(comments: HTMLInputElement[], display: string) {
-        comments.forEach(comment => {
-            const hasString = comment.innerText.includes(this.filter);
+        comments.forEach(async comment => {
+            const hasString = await this.findFilterWords(comment);
 
             if (hasString) {
                 // 8 x .parentNode bruh

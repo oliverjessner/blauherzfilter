@@ -1,53 +1,76 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="popup.css" />
+        <link rel="stylesheet" type="text/css" href="style/popup.css" />
     </head>
     <body>
-        <main class="grid gap-2 p-6 w-52 select-none">
+        <main class="grid gap-2 p-6 w-72 select-none">
             <div class="flex flex-row justify-between">
                 <img alt="Das Logo von BlauHerzFilter" src="../images/logo_32.png" />
-                <p class="text-xl text-gray-500">&nbsp;BlauHerzFilter</p>
+                <p class="text-center text-xl text-gray-500">&nbsp;BlauHerzFilter</p>
             </div>
 
-            <hr class="mt-4 mb-4" />
+            <hr />
 
-            <!-- 
-            <label for="input">Filter Zeichen:</label>
-            <input tilte="" value="💙" />
-            -->
+            <div class="grid grid-flow-col text-center gap-1 py-2">
+                <p class="tab-select tab-active" data-for="social-media">Social Medias</p>
+                <p class="tab-select" data-for="filter-words">Filterwörter</p>
+            </div>
 
-            <p class="text-gray-500 text-base">Social Medias</p>
+            <div>
+                <div
+                    data-for="social-media"
+                    class="tab-menu social-medias grid gap-2 grid-cols-[auto_1fr_auto] items-center justify-center"
+                >
+                    <input type="checkbox" id="tiktok" name="tiktok" value="tiktok" class="social-media-checkbox" />
+                    <label for="tiktok" class="checkbox-label">TikTok</label>
+                    <img alt="Das Logo von TikTok" class="grayscale" src="../images/social_media_logos/tiktok.webp" />
 
-            <div class="social-medias grid gap-2 grid-cols-[auto_1fr_auto] items-center justify-center">
-                <input type="checkbox" id="tiktok" name="tiktok" value="tiktok" class="social-media-checkbox" />
-                <label for="tiktok" class="checkbox-label">TikTok</label>
-                <img alt="Das Logo von TikTok" class="grayscale" src="../images/social_media_logos/tiktok.webp" />
+                    <input
+                        type="checkbox"
+                        id="instagram"
+                        name="instagram"
+                        value="instagram"
+                        class="social-media-checkbox"
+                    />
+                    <label for="instagram" class="checkbox-label">Instagram</label>
+                    <img
+                        alt="Das Logo von Instagram"
+                        class="grayscale"
+                        src="../images/social_media_logos/instagram.webp"
+                    />
 
-                <input
-                    type="checkbox"
-                    id="instagram"
-                    name="instagram"
-                    value="instagram"
-                    class="social-media-checkbox"
-                />
-                <label for="instagram" class="checkbox-label">Instagram</label>
-                <img alt="Das Logo von Instagram" class="grayscale" src="../images/social_media_logos/instagram.webp" />
+                    <input type="checkbox" id="youtube" name="youtube" value="youtube" class="social-media-checkbox" />
+                    <label for="youtube" class="checkbox-label">YouTube</label>
+                    <img alt="Das Logo von YouTube" class="grayscale" src="../images/social_media_logos/youtube.webp" />
 
-                <input type="checkbox" id="youtube" name="youtube" value="youtube" class="social-media-checkbox" />
-                <label for="youtube" class="checkbox-label">YouTube</label>
-                <img alt="Das Logo von YouTube" class="grayscale" src="../images/social_media_logos/youtube.webp" />
+                    <input type="checkbox" id="x" name="x" value="x" class="social-media-checkbox" />
+                    <label for="x" class="checkbox-label">X/twitter</label>
+                    <img alt="Das Logo von X/twitter" class="grayscale" src="../images/social_media_logos/x.webp" />
 
-                <input type="checkbox" id="x" name="x" value="x" class="social-media-checkbox" />
-                <label for="x" class="checkbox-label">X/twitter</label>
-                <img alt="Das Logo von X/twitter" class="grayscale" src="../images/social_media_logos/x.webp" />
+                    <input type="checkbox" id="threads" name="threads" value="threads" class="social-media-checkbox" />
+                    <label for="threads" class="checkbox-label">threads</label>
+                    <img alt="Das Logo von threads" class="grayscale" src="../images/social_media_logos/threads.webp" />
+                </div>
 
-                <input type="checkbox" id="threads" name="threads" value="threads" class="social-media-checkbox" />
-                <label for="threads" class="checkbox-label">threads</label>
-                <img alt="Das Logo von threads" class="grayscale" src="../images/social_media_logos/threads.webp" />
+                <div data-for="filter-words" class="filter-words tab-menu hidden">
+                    <label for="input" class="checkbox-label">Neue Filterwörter hinzufügen:</label>
+                    <input class="border-2" title="Gib hier neue Filterwörter hinzu und drücke Enter" value="" />
+
+                    <div class="pt-4">
+                        <p class="py-2 checkbox-label !float-none">Filterwörter</p>
+                        <ul>
+                            <li class="text-sm">💙</li>
+                        </ul>
+
+                        <ul class="filter-words-list max-h-24 overflow-y-scroll"></ul>
+                    </div>
+                </div>
             </div>
         </main>
 
-        <script src="popup.js"></script>
+        <script src="scripts/popup.js"></script>
+        <script src="scripts/tab.js"></script>
+        <script src="scripts/filterwords.js"></script>
     </body>
 </html>

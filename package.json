@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "build": "npx tailwindcss -i ./popup/input.css -o ./popup/popup.css && tsc",
-        "watch_css": "npx tailwindcss -i ./popup/input.css -o ./popup/popup.css --watch",
+        "watch_css": "npx tailwindcss -i ./popup/style/input.css -o ./popup/style/popup.css --watch",
         "watch_ts": "tsc --watch",
         "dev_ff": "web-ext run --browser-console --devtools",
         "dev_chrome": "web-ext run --arg=\"--remote-debugging-port=9229\" --target chromium",
@@ -17,5 +17,9 @@
     "devDependencies": {
         "tailwindcss": "^3.4.4",
         "@types/chrome": "^0.0.268"
+    },
+    "dependencies": {
+        "@shoelace-style/shoelace": "^2.16.0",
+        "lit": "^3.1.4"
     }
 }

@@ -7,8 +7,7 @@ const socialMedias = [...document.querySelectorAll('.social-medias input')].map(
 });
 function sendMessageToContent(message) {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        var _a;
-        if ((_a = tabs[0]) === null || _a === void 0 ? void 0 : _a.id) {
+        if (tabs[0]?.id) {
             chrome.tabs.sendMessage(tabs[0].id, message, () => { });
         }
     });

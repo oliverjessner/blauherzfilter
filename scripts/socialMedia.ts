@@ -14,9 +14,8 @@ class SocialMedia {
         return this.#commentsQueryL2 || '';
     }
 
-    constructor(filter: string, commentsQueryL1: string, commentsQueryL2: string | undefined) {
+    constructor(commentsQueryL1: string, commentsQueryL2: string | undefined) {
         this.name = this.constructor.name.toLowerCase();
-        this.filter = filter;
         this.#commentsQueryL1 = commentsQueryL1;
         this.#commentsQueryL2 = commentsQueryL2;
         this.#debug = new Debug(this.name);
@@ -62,6 +61,17 @@ class SocialMedia {
             }
         }
     }
-}
 
-(globalThis as any).SocialMedia = SocialMedia;
+    protected async findFilterWords(comment: HTMLElement): Promise<boolean> {
+        let { filterWords } = await chrome.storage.sync.get('filterWords');
+        const emoji: string = '💙';
+
+        if (!Array.isArray(filterWords)) {
+            filterWords = [];
+        }
+
+        filterWords.push(emoji);
+
+        return filterWords.some((word: string) => comment.innerText.toLowerCase().includes(word));
+    }
+}
